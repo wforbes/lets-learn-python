@@ -1,3 +1,8 @@
+# https://youtu.be/NpmFbWO6HPU?si=Nd3t1A_b6r2oDvDD&t=1320
+# improvement ideas:
+#   - add a higher or lower hint with each guess
+#   - demonstrate elif on the high/low hint case like the video does
+#   - break it up into functions
 import random
 
 max_number = input("Type a number: ")
