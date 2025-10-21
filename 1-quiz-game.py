@@ -1,6 +1,6 @@
-# https://youtu.be/NpmFbWO6HPU?si=h_8zXJfaW2ZtIsoW&t=120
+# https://www.youtube.com/watch?v=NpmFbWO6HPU
 
-print("Welcome to my computer quiz!")
+print("Welcome to the quiz game!")
 
 playing = input("Do you want to play? (y/n): ")
 
@@ -12,35 +12,28 @@ if playing[0].lower() != "y":
 
 print("Ok let's play! 🎉")
 score = 0
+playing = True
 
-answer = input("What does CPU stand for? ")
-if answer.lower() == "central processing unit":
-    print("Correct! 🧠")
-    score += 1
-else:
-    print("Incorrect 😭")
+qas = [
+    ("What does CPU stand for?", "central processing unit", 1),
+    ("What does GPU stand for?", "graphics processing unit", 1),
+    ("What does PSU stand for?", "power supply unit", 1),
+    ("Did you subscribe the channel?", "maybe", 1)
+    ("Did you like the video?", "Nahhhh", 100),
+]
 
-answer = input("What does GPU stand for? ")
-if answer.lower() == "graphics processing unit":
-    print("Correct! 🧠")
-    score += 1
-else:
-    print("Incorrect 😭")
+for qa in qas:
+    answer = input(f"{qa[0]}: ").lower()
+    if answer == "q":
+        break
+    if answer == qa[1]:
+        score += qa[2]
+        print("Correct! 🧠")
+    else:
+        print("WRONG! ❌")
+    print("(respond Q to quit early)")
 
-answer = input("What does PSU stand for? ")
-if answer.lower() == "power supply unit":
-    print("Correct! 🧠")
-    score += 1
-else:
-    print("Incorrect 😭")
+print("Score is", score)
+pct_correct = int(score / 4 * 100)
 
-answer = input("Did you subscribe to the channel? ")
-if answer.lower() == "maybe":
-    print("Correct! 🧠")
-    score += 1
-else:
-    print("Incorrect 😭")
-
-print("All done!")
-print("You got " + str(score) + " questions correct!")
-print("That's " + str((score / 4)  * 100) + "%!")
+print(f"All done! Your score was {str(score)}! That's {pct_correct}%!")
